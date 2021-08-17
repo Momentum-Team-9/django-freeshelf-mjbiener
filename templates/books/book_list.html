@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="books"><h2>YOUR BOOKS</h2>
+        
+        <h3>
+
+        </h3>
+
+        <ul id= "book-list">
+            {% for book in books %}
+                <li>
+                
+                Book Name: <a>{{book.title}}</a><br>
+                </br>
+                Author: {{book.author}}
+                </br>
+                </br>
+                URL: {{book.url}}
+                </br>
+                </br>
+                Description: {{book.description}}
+                </br>
+                </br>
+                Catagories: {{book.category}}
+                </br>
+                </br>
+                Book Added: {{book.created_at}}
+                <br>
+                <br>
+                </br>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endblock %}

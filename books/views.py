@@ -4,12 +4,12 @@ from .models import User, Author, Book
 
 # Create your views here.
 
-# def index(request):
-#     users = User.objects.all()
+def index(request):
+    users = User.objects.all()
 
-#     return render(request, 'books/index.html', {'users': users})
+    return render(request, 'books/index.html', {'users': users})
 
 
 def book_list(request):
     books = Book.objects.all()
-    return render(request, 'books/index.html', {'books': books})
+    return render(request, 'books/book_list.html', {'books': books})

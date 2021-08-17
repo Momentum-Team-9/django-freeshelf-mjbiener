@@ -18,6 +18,14 @@ class Author(models.Model):
         return f"{self.name}"
 
 
+class Category(models.Model):
+    name = models.CharField(max_length=255)
+    slug = models.SlugField(blank=True)
+
+    def __str__(self):
+        return f'{self.name}'
+
+
 class Book(models.Model):
     title = models.CharField(max_length=250)
     author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name="books")
@@ -25,6 +33,7 @@ class Book(models.Model):
     description = models.TextField(max_length=2500)
     release_year = models.IntegerField(blank=True, null=True)
     cover_photo = models.CharField(max_length=250, blank=True, null=True)
+    category = models.ManyToManyField(Category, related_name="books", null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
