@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 from pathlib import Path
 import environ
+from django.conf import settings
+from django.conf.urls.static import static
 
 env = environ.Env(
     # set casting, default value
@@ -141,5 +143,9 @@ AUTH_USER_MODEL = "books.User"
 
 ACCOUNT_ACTIVATION_DAYS = 7
 
-SIMPLE_BACKEND_REDIRECT_URL = '/'
+LOGIN_URL = 'login'
+REGISTRATION_AUTO_LOGIN = True
+LOGIN_REDIRECT_URL = 'book_list'
+LOGOUT_REDIRECT_URL = 'index'
+SIMPLE_BACKEND_REDIRECT_URL = 'books'
 
