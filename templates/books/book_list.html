@@ -19,7 +19,7 @@
                 <br>
                 </br>
                 {% for author in book.authors.all %}
-                Author: <a href ="{% url 'author_list' %}">{{author.name}}</a>
+                Author: <a href = "{% url 'books_for_author' pk=author.pk %}">{{author.name}}</a>
                 {% endfor %}
                 </br>
                 </br>
