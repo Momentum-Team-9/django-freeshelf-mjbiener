@@ -2,26 +2,27 @@
 
 {% block content %}
 
-    <div class="books"><h2>BOOKS</h2>
+    <div class="books"><h2>BOOKS by {{author.name}}</h2>
         
         <h3>
 
         </h3>
 
         <ul id= "book-list">
+            {% if book.author.pk == author.pk %}
             {% for book in books reversed %}
+            
                 <li>
                 {% if book.cover_photo %}
                 <img src="{{ book.cover_photo }}" alt="{{book.title}}"><br>
                 {% endif %}
-
                 Book Name: {{book.title}}
                 <br>
                 </br>
-                
-                Author: <a href ="{% url 'author_list' %}">{{book.author.name}}</a>
+                Author: {{book.author}}
                 </br>
                 </br>
+                <!-- URL: {{book.url}}  -->
                 URL: <a href={{book.url}}>{{book.url}}</a>
                 </br>
                 </br>
@@ -38,6 +39,8 @@
             </br>
                 </li>
             {% endfor %}
+            {% endif %}
+            
         </ul>
     </div>
     {% endblock %}

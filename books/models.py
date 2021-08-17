@@ -13,7 +13,6 @@ class User(AbstractUser):
 
 class Author(models.Model):
     name = models.CharField(max_length=100)
-
     def __str__(self):
         return f"{self.name}"
 
@@ -35,6 +34,7 @@ class Book(models.Model):
     cover_photo = models.CharField(max_length=250, blank=True, null=True)
     category = models.ManyToManyField(Category, related_name="books", null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
+    # favorited_by = models.ManyToManyField("User", related_name="favorite_books")
 
     def __str__(self):
         return f"{self.title}, {self.author}, {self.release_year}"
