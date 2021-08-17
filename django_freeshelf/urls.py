@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
 from books import views
 
 urlpatterns = [
@@ -24,4 +25,5 @@ urlpatterns = [
     path('books/', views.book_list, name='book_list'),
     path('authors/', views.author_list, name='author_list'),
     path('authors/<int:pk>/books/', views.books_for_author, name='books_for_author'),
+    path('categories/',views.categories, name='categories'),
 ]

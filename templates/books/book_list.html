@@ -18,8 +18,9 @@
                 Book Name: {{book.title}}
                 <br>
                 </br>
-                
-                Author: <a href ="{% url 'author_list' %}">{{book.author.name}}</a>
+                {% for author in book.authors.all %}
+                Author: <a href ="{% url 'author_list' %}">{{author.name}}</a>
+                {% endfor %}
                 </br>
                 </br>
                 URL: <a href={{book.url}}>{{book.url}}</a>

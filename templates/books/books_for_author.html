@@ -2,44 +2,48 @@
 
 {% block content %}
 
-    <div class="books"><h2>BOOKS by {{author.name}}</h2>
+    <div class="books"><h2>Books by {{author.name}}</h2>
         
         <h3>
 
         </h3>
 
         <ul id= "book-list">
-            {% if book.author.pk == author.pk %}
-            {% for book in books reversed %}
             
-                <li>
-                {% if book.cover_photo %}
-                <img src="{{ book.cover_photo }}" alt="{{book.title}}"><br>
+                {% if book.authors.pk == authors.pk %}
+                    {% for book in books reversed %}
+            
+                    <li>
+                    {% if book.cover_photo %}
+                    <img src="{{ book.cover_photo }}" alt="{{book.title}}"><br>
+                    {% endif %}
+                    Book Name: {{book.title}}
+                    <br>
+                    </br>
+                    {% for author in book.authors.all %}
+                    Author: {{author.name}}
+                    {% endfor %}
+                    </br>
+                    </br>
+                    <!-- URL: {{book.url}}  -->
+                    URL: <a href={{book.url}}>{{book.url}}</a>
+                    </br>
+                    </br>
+                    Description: {{book.description}}
+                    </br>
+                    </br>
+                    Categories: {{book.category}}
+                    </br>
+                    </br>
+                    Book Added: {{book.created_at}}
+                    <br>
+                    <br>
+                    </br>
+                    </br>
+                    </li>
+                    {% endfor %}
                 {% endif %}
-                Book Name: {{book.title}}
-                <br>
-                </br>
-                Author: {{book.author}}
-                </br>
-                </br>
-                <!-- URL: {{book.url}}  -->
-                URL: <a href={{book.url}}>{{book.url}}</a>
-                </br>
-                </br>
-                Description: {{book.description}}
-                </br>
-                </br>
-                Categories: {{book.category}}
-                </br>
-                </br>
-                Book Added: {{book.created_at}}
-                <br>
-                <br>
-                </br>
-            </br>
-                </li>
-            {% endfor %}
-            {% endif %}
+            
             
         </ul>
     </div>

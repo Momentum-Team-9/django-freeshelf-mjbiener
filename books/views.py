@@ -1,5 +1,5 @@
 from django.shortcuts import redirect, render, get_object_or_404
-from .models import User, Author, Book
+from .models import User, Author, Book, Category
 
 
 # Create your views here.
@@ -26,3 +26,8 @@ def books_for_author(request, pk):
     author = get_object_or_404(Author, pk=pk)
     books = author.books.all()
     return render(request, 'books/books_for_author.html', {'books': books})
+
+
+def categories(request):
+    categories = Category.objects.all()
+    return render(request, 'books/categories.html', {'categories': categories})
