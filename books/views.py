@@ -33,7 +33,8 @@ def categories(request):
     return render(request, 'books/categories.html', {'categories': categories})
 
 
-def books_in_category(request, pk):
-    category = get_object_or_404(Category, pk=pk)
-    books = category.books.all()
-    return render(request, 'books/books_in_category.html', {'books': books})
+def show_categories(request, slug):
+    categories = get_object_or_404(Category, slug=slug)
+    books = categories.books.all()
+
+    return render(request, "books/show_categories.html", {"categories": categories, "books": books})

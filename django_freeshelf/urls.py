@@ -26,5 +26,5 @@ urlpatterns = [
     path('authors/', views.author_list, name='author_list'),
     path('authors/<int:pk>/books/', views.books_for_author, name='books_for_author'),
     path('categories/',views.categories, name='categories'),
-    path('categories/<int:pk>/books/', views.books_in_category, name='books_in_category'),
+    path('categories/<slug:slug>', views.show_categories, name='show_categories'),
 ]

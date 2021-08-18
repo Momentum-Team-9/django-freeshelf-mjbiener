@@ -31,7 +31,7 @@
                 </br>
                 Categories: 
                 {% for category in book.categories.all %}
-                <a href = {% url 'categories' %}> {{category.name}}</a> 
+                <a href = "{% url 'show_categories' slug=category.slug %}">{{category.name}}</a>
                 {% endfor %}
                 </br>
                 </br>

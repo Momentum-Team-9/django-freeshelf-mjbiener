@@ -11,7 +11,7 @@
         <ul id= "category-list">
             {% for category in categories %}
             <li>
-                <a href = "{% url 'books_in_category' pk=category.pk %}">{{category.name}}</a>
+                <a href = "{% url 'show_categories' slug=category.slug %}">{{category.name}}</a>
                 </br>
                 </br>
                 

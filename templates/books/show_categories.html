@@ -2,7 +2,7 @@
 
 {% block content %}
 
-    <div class="books"><h2>Books in the {{category.name}} Category</h2>
+    <div class="books"><h2>Books in the {{books.slug.name}} Category</h2>
         
         <ul id= "book-list">
             
@@ -17,11 +17,10 @@
                     <br>
                     </br>
                     {% for author in book.authors.all %}
-                    Author: {{author.name}}
-                    {% endfor %}
+                    Author: <a href = "{% url 'books_for_author' pk=author.pk %}">{{author.name}}</a>
+                {% endfor %}
                     </br>
                     </br>
-                    <!-- URL: {{book.url}}  -->
                     URL: <a href={{book.url}}>{{book.url}}</a>
                     </br>
                     </br>
@@ -30,7 +29,7 @@
                     </br>
                     Categories: 
                     {% for category in book.categories.all %}
-                    <a href = "{% url 'books_in_category' pk=category.pk %}">{{category.name}}</a>
+                    <a href = "{% url 'show_categories' slug=category.slug %}">{{category.name}}</a>
                     {% endfor %}
                     </br>
                     </br>
