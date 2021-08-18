@@ -2,7 +2,7 @@
 
 {% block content %}
 
-    <div class="books"><h2>Books by {{author.name}}</h2>
+    <div class="books"><h2>Books in the {{category.name}} Category</h2>
         
         <h3>
 
@@ -10,7 +10,7 @@
 
         <ul id= "book-list">
             
-                {% if book.authors.pk == authors.pk %}
+                {% if book.categories.pk == category.pk %}
                     {% for book in books reversed %}
             
                     <li>
@@ -32,6 +32,7 @@
                     Description: {{book.description}}
                     </br>
                     </br>
+                    Categories: 
                     {% for category in book.categories.all %}
                     <a href = "{% url 'books_in_category' pk=category.pk %}">{{category.name}}</a>
                     {% endfor %}

@@ -31,3 +31,9 @@ def books_for_author(request, pk):
 def categories(request):
     categories = Category.objects.all()
     return render(request, 'books/categories.html', {'categories': categories})
+
+
+def books_in_category(request, pk):
+    category = get_object_or_404(Category, pk=pk)
+    books = category.books.all()
+    return render(request, 'books/books_in_category.html', {'books': books})
