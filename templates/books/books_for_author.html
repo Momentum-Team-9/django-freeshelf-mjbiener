@@ -32,7 +32,10 @@
                     Description: {{book.description}}
                     </br>
                     </br>
-                    Categories: {{book.category}}
+                    Categories: 
+                    {% for category in book.categories.all %}
+                    <a href = {% url 'categories' %}> {{category.name}}</a> 
+                    {% endfor %}
                     </br>
                     </br>
                     Book Added: {{book.created_at}}
