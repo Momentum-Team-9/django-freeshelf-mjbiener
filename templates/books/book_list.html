@@ -12,7 +12,10 @@
                 {% endif %}
 
                 Book Name: {{book.title}}
-                <br>
+                </br>
+                </br>
+                <a href="{% url 'favorites_add' pk=book.pk %}"class="favorite_button">Add to Favorites</a>
+                </br>
                 </br>
                 {% for author in book.authors.all %}
                 Author: <a href = "{% url 'books_for_author' pk=author.pk %}">{{author.name}}</a>

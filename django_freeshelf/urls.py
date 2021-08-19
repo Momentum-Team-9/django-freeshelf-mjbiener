@@ -27,4 +27,6 @@ urlpatterns = [
     path('authors/<int:pk>/books/', views.books_for_author, name='books_for_author'),
     path('categories/',views.categories, name='categories'),
     path('categories/<slug:slug>', views.show_categories, name='show_categories'),
+    path('favorites/<int:pk>/', views.favorites_add, name='favorites_add'),
+    path('favorites/', views.favorites_list, name='favorites_list'),
 ]

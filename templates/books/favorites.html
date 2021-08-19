@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+User Favorites
+
+{% for book in new %}
+
+<li>
+    {% if book.cover_photo %}
+    <img src="{{ book.cover_photo }}" alt="{{book.title}}"><br>
+    {% endif %}
+
+    Book Name: {{book.title}}
+    </br>
+    </br>
+    <a href='' class="favorite_button">Add to Favorites</a>
+    </br>
+    </br>
+    {% for author in book.authors.all %}
+    Author: <a href = "{% url 'books_for_author' pk=author.pk %}">{{author.name}}</a>
+    {% endfor %}
+    </br>
+    </br>
+    URL: <a href={{book.url}}>{{book.url}}</a>
+    </br>
+    </br>
+    Description: {{book.description}}
+    </br>
+    </br>
+    Categories: 
+    {% for category in book.categories.all %}
+    <a href = "{% url 'show_categories' slug=category.slug %}">{{category.name}}</a>
+    {% endfor %}
+    </br>
+    </br>
+    Book Added: {{book.created_at}}
+    <br>
+    <br>
+    </br>
+</br>
+    </li>
+
+{% endblock %}
