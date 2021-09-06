@@ -58,6 +58,7 @@ def favorites_add(request, pk):
 
 
 @login_required
-def favorites_list(request):
-    new = Book.favorites.filter(request.user)
+def favorites_list(request, pk):
+    book = get_object_or_404(Book, pk=pk)
+    new = book.favorites.filter(request.user)
     return render(request, 'books/favorites.html', {'new': new})
